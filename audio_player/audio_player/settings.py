@@ -33,7 +33,24 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'audio-player-lab1.herokuapp.com',
 ]
+CORS_ALLOW_CREDENTIALS = True
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_CREDENTIALS = True
+
+CSRF_TRUSTED_ORIGINS = ['chrome-extension://mopljeogemdcpjophnmejnknhbkklloo/dist/index.html', 'http://127.0.0.1:8000']
+
+CORS_ORIGIN_WHITELIST = (
+    'chrome-extension://mopljeogemdcpjophnmejnknhbkklloo/dist/index.html',
+    'http://127.0.0.1:8000',
+)
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
 
 # Application definition
 
@@ -45,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'player.apps.PlayerConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
